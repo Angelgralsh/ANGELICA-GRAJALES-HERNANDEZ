@@ -37,7 +37,7 @@ function calculateParkingFee() {
 
     // Condicional If-Else para validar horas de estacionamiento
     // Verifica si horas <=1 o inválido (NaN si no es numero)
-    // Scope del bloque: Si usaramos let/const dentro del bloque no podriamos usarla fuera
+    // Scope del bloque: Si es let/const dentro del bloque no se puede usar fuera del bloque
     if (parkedHours <= 1 || isNaN(parkedHours)) { // Por si no es un numero el input 
         // Output: Mensaje 
         console.log("Free parking for the first hour or invalid input.");
@@ -69,9 +69,7 @@ function calculateParkingFee() {
             console.log("Adjustment for peak hour: +50%.");
         }
 
-        // Switch: Selección múltiple (cumple con switch requerido).
-        // Ajusta basado en vehicleType (string local).
-        // Cases: car, motorcycle, truck; default para errores.
+        // Switch: Selección múltiple 
         switch (vehicleType) {
             case "car":
                 // Actualiza global: +2.
@@ -99,6 +97,9 @@ function calculateParkingFee() {
         }
     }
 
-    // Output final: Muestra total (cumple con output requerido).
+    // Output final: Muestra total a pagar
     // Concatena string con número (totalFee)
     console.log("Total to pay: $" + totalFee);
+
+    // Llamar la función
+calculateParkingFee(); }
