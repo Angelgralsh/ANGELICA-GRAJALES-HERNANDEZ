@@ -1,0 +1,30 @@
+Este caso representa un problema comun de mi dia a dia en la gestión de un parqueadero público familiar,
+ donde se necesita automatizar el cálculo de la tarifa de estacionamiento. El objetivo es crear un programa que, basándose en el tipo de vehículo, el tiempo de estacionamiento y si se trata de una hora pico, pueda determinar la tarifa final de manera automática sin necesidad de calculos o demoras adicionales
+
+//
+
+Solución a la Problemática
+
+El diagrama de flujo que se presenta es una excelente representación de la lógica que un programa seguiría para solucionar esta problemática. A continuación, se detalla cómo el código podría abordar cada condición del proceso:
+
+ 1. Verificación del Tiempo de Estacionamiento
+El programa comenzaría preguntando al usuario cuántas horas ha estado el vehículo en el parqueadero. Si el tiempo es una hora o menos, la tarifa sería gratis. Esto se indica en el diagrama con la flecha que va al recuadro "Free Parking" (estacionamiento gratis).
+
+ 2. Cálculo de la Tarifa Base
+Si el tiempo de estacionamiento es mayor a una hora, el programa procedería a calcular una tarifa inicial. Esta tarifa base se ajustaría luego según otras condiciones.
+
+ 3. Ajuste por Hora Pico
+Luego, el programa verificaría si la hora actual es una hora pico. Si es así, la tarifa base se incrementaría en un 50%. Si no es hora pico, el cálculo continuaría sin este aumento.
+
+//
+
+Ajuste por Tipo de Vehículo
+
+Una vez que se ha ajustado la tarifa por la condición de hora pico, el programa evaluaría el tipo de vehículo para aplicar un recargo específico.
+
+* Carro: Si el vehículo es un carro, se le sumarían $2 a la tarifa.
+* Motocicleta: Para una motocicleta, se sumaría $1.
+* Camión: En el caso de un camión, se añadirían $4.
+* Otro: Si el tipo de vehículo ingresado no corresponde a ninguna de las opciones válidas, el programa podría mostrar un mensaje de error o indicar que "no hay entrada válida".
+
+Finalmente, el programa calcularía la tarifa total sumando todos los recargos aplicados y mostraría el resultado final al cliente, automatizando así un proceso que de otra forma requeriría un cálculo manual y propenso a errores.
