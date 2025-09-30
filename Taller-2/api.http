@@ -1,0 +1,49 @@
+### FLIGHTS
+GET http://localhost:3000/flights?origin=MDE&date=2025-10-01&nonstop=true&limit=10
+GET http://localhost:3000/flights/101
+POST http://localhost:3000/flights
+Content-Type: application/json
+
+{ "origin": "MDE", "destination": "BOG", "departureDate": "2025-10-01T10:00:00.000Z", "aircraft": "A320" }
+POST http://localhost:3000/flights/101/passengers
+Content-Type: application/json
+
+{ "passengerId": 55 }
+PATCH http://localhost:3000/flights/101
+Content-Type: application/json
+
+{ "departureDate": "2025-10-01T11:30:00.000Z" }
+PATCH http://localhost:3000/flights/101/status
+Content-Type: application/json
+
+{ "status": "boarding" }
+
+### PASSENGERS
+GET http://localhost:3000/passengers
+GET http://localhost:3000/passengers/55
+POST http://localhost:3000/passengers
+Content-Type: application/json
+
+{ "fullName": "Daniel Echeverry", "email": "daniel@dano3d.com" }
+POST http://localhost:3000/passengers/55/loyalty
+Content-Type: application/json
+
+{ "points": 120 }
+
+### BOOKINGS
+GET http://localhost:3000/bookings
+GET http://localhost:3000/bookings/9001
+DELETE http://localhost:3000/bookings/9001
+DELETE http://localhost:3000/bookings/9001/items/2
+
+### AIRPORTS
+GET http://localhost:3000/airports
+GET http://localhost:3000/airports/MDE
+PATCH http://localhost:3000/airports/MDE
+Content-Type: application/json
+
+{ "city": "Medellín", "country": "CO" }
+PATCH http://localhost:3000/airports/MDE/gates
+Content-Type: application/json
+
+{ "gates": 28 }
