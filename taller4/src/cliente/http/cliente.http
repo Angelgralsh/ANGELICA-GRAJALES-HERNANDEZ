@@ -1,0 +1,53 @@
+@baseUrl = http://localhost:3000
+@token_admin = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4ifQ.5fgxZ-YfZjaWRTMhWievubs4oP9RomQABFmMvVhJpUE
+@token_cliente = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInJvbCI6ImNsaWVudGUiLCJpYXQiOjE3NjE4ODczNDIsImV4cCI6MTc2MTg5MDk0Mn0.BQmGPQN0HG6eiQ9xXSG0HO0s4pK0essJyIyzSMqTRsw
+
+##############################################################
+# Pruebas del módulo Cliente
+# Este archivo contiene las solicitudes HTTP para verificar
+# los endpoints del controlador Cliente.
+# Usa variables para el token del cliente o del admin según corresponda.
+##############################################################
+
+### Login del cliente
+POST {{baseUrl}}/auth/login/cliente
+Content-Type: application/json
+
+{
+    "correo": "juana@gmail.com",
+    "contrasena": "Cliente12345*"
+}
+
+
+### Registrar cliente
+POST {{baseUrl}}/auth/register/cliente
+Content-Type: application/json
+
+{
+    "nombre": "Juana Pérez",
+    "correo": "juana@gmail.com",
+    "telefono": "3001234567",
+    "direccion": "Calle 45 #10-22",
+    "contrasena": "Cliente12345*"
+}
+
+### Listar todos los clientes (solo admin)
+GET {{baseUrl}}/cliente
+Authorization: Bearer {{token_admin}}
+
+### Obtener cliente por ID (cliente o admin)
+GET {{baseUrl}}/cliente/11
+Authorization: Bearer {{token_cliente}}
+
+### Actualizar cliente (cliente o admin)
+PATCH {{baseUrl}}/cliente/11
+Content-Type: application/json
+Authorization: Bearer {{token_cliente}}
+
+{
+    "cli_nombre": "Juanas Pérez"
+}
+
+### Eliminar cliente (solo admin)
+DELETE {{baseUrl}}/cliente/1
+Authorization: Bearer {{token_admin}}
